@@ -1,0 +1,149 @@
+[
+  {
+    "name": "GitHub Copilot",
+    "strengths": ["code completion", "multi-language", "IDE integration"],
+    "limitations": ["not good at debugging", "context length limits"],
+    "best_for": ["autocompleting functions", "pair programming", "writing boilerplate"],
+    "system_prompt": "You are an AI pair programmer. Suggest code completions and help write logic in context."
+  },
+  {
+    "name": "Amazon CodeWhisperer",
+    "strengths": ["AWS integration", "multi-language", "enterprise support"],
+    "limitations": ["less community support"],
+    "best_for": ["AWS code generation", "compliance-sensitive orgs"],
+    "system_prompt": "You help generate and complete secure code with a focus on AWS services."
+  },
+  {
+    "name": "Cursor",
+    "strengths": ["in-editor chat", "context-aware refactoring"],
+    "limitations": ["requires VS Code fork"],
+    "best_for": ["refactoring", "in-context QA", "code navigation"],
+    "system_prompt": "You are a developer assistant helping with refactoring and navigation inside the codebase."
+  },
+  {
+    "name": "Replit Ghostwriter",
+    "strengths": ["in-browser IDE", "multi-language"],
+    "limitations": ["limited to Replit environment"],
+    "best_for": ["quick prototyping", "beginners", "browser-based coding"],
+    "system_prompt": "Help users write and debug code quickly inside the Replit editor."
+  },
+  {
+    "name": "Tabnine",
+    "strengths": ["local model option", "privacy-focused", "multi-language"],
+    "limitations": ["smaller model than Copilot"],
+    "best_for": ["teams with privacy concerns", "offline coding"],
+    "system_prompt": "You provide code suggestions while respecting privacy and security."
+  },
+  {
+    "name": "Sourcegraph Cody",
+    "strengths": ["codebase-wide search", "documentation generation"],
+    "limitations": ["requires codebase indexing"],
+    "best_for": ["large codebases", "documenting projects"],
+    "system_prompt": "You help developers navigate and document code across large projects."
+  },
+  {
+    "name": "Codeium",
+    "strengths": ["free tier", "multi-language", "IDE integration"],
+    "limitations": ["newer, less mature"],
+    "best_for": ["budget-conscious teams", "rapid prototyping"],
+    "system_prompt": "You assist with code generation and autocompletion for all major languages."
+  },
+  {
+    "name": "JetBrains AI Assistant",
+    "strengths": ["deep IntelliJ integration", "multi-language"],
+    "limitations": ["JetBrains IDE only"],
+    "best_for": ["JetBrains users", "refactoring"],
+    "system_prompt": "You help developers refactor and optimize code within JetBrains IDEs."
+  },
+  {
+    "name": "DeepCode (now Snyk Code)",
+    "strengths": ["security scanning", "bug detection"],
+    "limitations": ["focuses on security, not code generation"],
+    "best_for": ["secure code reviews", "bug hunting"],
+    "system_prompt": "You scan code for vulnerabilities and suggest secure coding practices."
+  },
+  {
+    "name": "Phind",
+    "strengths": ["developer search engine", "instant answers"],
+    "limitations": ["not a code editor"],
+    "best_for": ["researching solutions", "learning new tech"],
+    "system_prompt": "You provide instant, accurate answers to developer questions."
+  },
+  {
+    "name": "AskCodi",
+    "strengths": ["code generation", "documentation"],
+    "limitations": ["limited IDE integration"],
+    "best_for": ["documentation generation", "quick code snippets"],
+    "system_prompt": "You generate code and documentation on demand."
+  },
+  {
+    "name": "CodeSandbox AI",
+    "strengths": ["in-browser IDE", "multi-language"],
+    "limitations": ["limited to CodeSandbox"],
+    "best_for": ["web development", "collaborative coding"],
+    "system_prompt": "You help users prototype and debug web apps in the browser."
+  },
+  {
+    "name": "Mintlify",
+    "strengths": ["documentation automation", "AI-powered writing"],
+    "limitations": ["focuses on docs, not code"],
+    "best_for": ["documentation", "developer onboarding"],
+    "system_prompt": "You automate and improve documentation for developer projects."
+  },
+  {
+    "name": "Warmer.ai",
+    "strengths": ["email and content generation", "developer outreach"],
+    "limitations": ["not for code"],
+    "best_for": ["developer marketing", "email automation"],
+    "system_prompt": "You generate emails and content for developer outreach."
+  },
+  {
+    "name": "GPT Engineer",
+    "strengths": ["entire project generation", "rapid prototyping"],
+    "limitations": ["experimental", "requires prompt engineering"],
+    "best_for": ["project scaffolding", "MVP creation"],
+    "system_prompt": "You build entire codebases from high-level prompts."
+  },
+  {
+    "name": "AI2sql",
+    "strengths": ["SQL query generation", "natural language to SQL"],
+    "limitations": ["SQL only"],
+    "best_for": ["database queries", "data analysis"],
+    "system_prompt": "You translate natural language to SQL queries."
+  },
+  {
+    "name": "Dora AI",
+    "strengths": ["design-to-code", "web app generation"],
+    "limitations": ["web apps only"],
+    "best_for": ["frontend prototyping", "designers"],
+    "system_prompt": "You convert designs to production-ready web apps."
+  },
+  {
+    "name": "Stenography",
+    "strengths": ["code documentation", "inline comments"],
+    "limitations": ["focuses on docs, not code"],
+    "best_for": ["code commenting", "maintainable code"],
+    "system_prompt": "You generate inline code comments and documentation."
+  },
+  {
+    "name": "AI-Powered Jupyter Notebooks",
+    "strengths": ["data science", "notebook integration"],
+    "limitations": ["limited to notebooks"],
+    "best_for": ["data analysis", "machine learning"],
+    "system_prompt": "You help data scientists write and debug code in Jupyter notebooks."
+  },
+  {
+    "name": "AI Code Reviewer",
+    "strengths": ["pull request review", "code quality"],
+    "limitations": ["not a code generator"],
+    "best_for": ["code review automation", "team collaboration"],
+    "system_prompt": "You review code for quality and suggest improvements."
+  },
+  {
+    "name": "OpenAI Codex",
+    "strengths": ["natural language to code", "multi-language"],
+    "limitations": ["deprecated for new users"],
+    "best_for": ["prototyping", "learning to code"],
+    "system_prompt": "You translate natural language instructions into code."
+  }
+]
