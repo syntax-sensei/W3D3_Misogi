@@ -1,0 +1,296 @@
+{
+  "copilot": {
+    "name": "GitHub Copilot",
+    "documentation": {
+      "official": "https://docs.github.com/en/copilot",
+      "best_practices": "https://docs.github.com/en/copilot/getting-started-with-github-copilot/using-github-copilot-in-your-editor",
+      "api_reference": "https://docs.github.com/en/copilot/github-copilot-api",
+      "examples": "https://github.com/github/copilot-examples"
+    },
+    "strengths": [
+      "Real-time code completion and suggestions",
+      "Function and method generation with context",
+      "Multi-language support (Python, JavaScript, TypeScript, Java, C++, etc.)",
+      "IDE integration (VS Code, IntelliJ, Neovim)",
+      "Context-aware suggestions based on comments and code",
+      "Documentation generation from code",
+      "Test generation and refactoring suggestions"
+    ],
+    "best_for": [
+      "Function and class generation with docstrings",
+      "Code completion and line-by-line assistance",
+      "Documentation generation from existing code",
+      "Refactoring and code improvement suggestions",
+      "Test case generation",
+      "Boilerplate code generation"
+    ],
+    "limitations": [
+      "Limited to code generation (no project architecture)",
+      "Requires good context and clear comments",
+      "May not understand complex business logic without context",
+      "Context window limitations for large files",
+      "No direct API access for custom integrations"
+    ],
+    "optimization_focus": [
+      "Clear, specific comments and docstrings",
+      "Function signature patterns and type hints",
+      "Context provision through comments",
+      "Inline comments for complex logic",
+      "Error handling and edge case specifications",
+      "Code style and formatting preferences"
+    ],
+    "real_examples": [
+      "Write a function that sorts a list of dictionaries by a specific key",
+      "Create a class with proper initialization and methods",
+      "Generate unit tests for this function",
+      "Add error handling to this code",
+      "Refactor this code to follow PEP 8 standards"
+    ]
+  },
+  "cursor": {
+    "name": "Cursor",
+    "documentation": {
+      "official": "https://cursor.sh/docs",
+      "features": "https://cursor.sh/docs/features",
+      "api": "https://cursor.sh/docs/api",
+      "examples": "https://cursor.sh/docs/examples"
+    },
+    "strengths": [
+      "Complete project generation with file structure",
+      "Multi-file code generation and coordination",
+      "Architecture and design pattern suggestions",
+      "Testing strategy and test suite generation",
+      "Documentation generation (README, API docs, inline)",
+      "Code review and refactoring with explanations",
+      "Context-aware development across multiple files",
+      "Integration with version control systems"
+    ],
+    "best_for": [
+      "Full project creation with proper structure",
+      "Complex system architecture design",
+      "Code review and improvement with explanations",
+      "Testing strategy development and implementation",
+      "Documentation generation for entire projects",
+      "Refactoring large codebases",
+      "Multi-file feature implementation"
+    ],
+    "limitations": [
+      "May generate more code than needed for simple tasks",
+      "Requires clear project scope and requirements",
+      "Context window limitations for very large projects",
+      "May not always follow existing codebase patterns",
+      "Limited to supported programming languages"
+    ],
+    "optimization_focus": [
+      "Detailed project requirements and scope",
+      "File structure and organization specifications",
+      "Testing and documentation requirements",
+      "Architecture and design pattern preferences",
+      "Code style and formatting standards",
+      "Integration and deployment considerations"
+    ],
+    "real_examples": [
+      "Create a complete REST API with authentication and database",
+      "Build a full-stack web application with React frontend",
+      "Design a microservices architecture for an e-commerce system",
+      "Generate comprehensive test suites for this codebase",
+      "Refactor this monolithic application into microservices"
+    ]
+  },
+  "replit": {
+    "name": "Replit",
+    "documentation": {
+      "official": "https://docs.replit.com",
+      "ai_features": "https://docs.replit.com/ai-features",
+      "deployment": "https://docs.replit.com/deployment",
+      "packages": "https://docs.replit.com/packages"
+    },
+    "strengths": [
+      "Web application development with built-in hosting",
+      "Package and dependency management automation",
+      "Interactive coding environment with real-time collaboration",
+      "Multi-language support with environment setup",
+      "Built-in database and storage solutions",
+      "Deployment and hosting with custom domains",
+      "Educational project templates and examples",
+      "Real-time collaboration and sharing"
+    ],
+    "best_for": [
+      "Web applications and websites with hosting",
+      "Educational projects and tutorials",
+      "Prototyping and MVPs with quick deployment",
+      "Collaborative coding and learning",
+      "Interactive applications and games",
+      "API development with automatic deployment"
+    ],
+    "limitations": [
+      "Primarily focused on web-based development",
+      "Resource constraints on free tier",
+      "Limited to supported languages and frameworks",
+      "May not support all advanced enterprise features",
+      "Network and file system restrictions"
+    ],
+    "optimization_focus": [
+      "Web framework selection and setup",
+      "Package and dependency management",
+      "Deployment and hosting configuration",
+      "Interactive and collaborative features",
+      "Environment and configuration setup",
+      "Database and storage integration"
+    ],
+    "real_examples": [
+      "Create a Flask web app with user authentication",
+      "Build a React frontend with API integration",
+      "Set up a Python environment with specific packages",
+      "Deploy a Node.js application with database",
+      "Create an interactive educational game"
+    ]
+  },
+  "codewhisperer": {
+    "name": "Amazon CodeWhisperer",
+    "documentation": {
+      "official": "https://docs.aws.amazon.com/codewhisperer",
+      "getting_started": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/getting-started.html",
+      "security": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/security.html",
+      "aws_integration": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/aws-integration.html"
+    },
+    "strengths": [
+      "AWS service integrations and best practices",
+      "Security-focused development with IAM and encryption",
+      "Cloud-native patterns and serverless architectures",
+      "AWS SDK and API integration patterns",
+      "Infrastructure as Code (CloudFormation, CDK)",
+      "Cost optimization and resource management",
+      "Compliance and security scanning",
+      "Multi-language support for AWS development"
+    ],
+    "best_for": [
+      "AWS application development and integration",
+      "Cloud-native applications and microservices",
+      "Security-critical applications with compliance",
+      "Infrastructure automation and IaC",
+      "AWS service integration and optimization",
+      "Serverless application development"
+    ],
+    "limitations": [
+      "Primarily focused on AWS ecosystem",
+      "Requires AWS knowledge for optimal results",
+      "May not be optimal for non-AWS development",
+      "Limited to supported AWS services and patterns",
+      "Requires AWS account and permissions"
+    ],
+    "optimization_focus": [
+      "AWS service selection and integration",
+      "Security best practices and compliance",
+      "Cloud-native patterns and architectures",
+      "Infrastructure as Code and automation",
+      "Cost optimization strategies",
+      "AWS SDK and API usage patterns"
+    ],
+    "real_examples": [
+      "Create a Lambda function with DynamoDB integration",
+      "Set up an API Gateway with authentication",
+      "Deploy a containerized application to ECS",
+      "Create CloudFormation templates for infrastructure",
+      "Implement secure S3 bucket policies"
+    ]
+  },
+  "claude": {
+    "name": "Claude (Anthropic)",
+    "documentation": {
+      "official": "https://docs.anthropic.com",
+      "api_reference": "https://docs.anthropic.com/claude/reference",
+      "best_practices": "https://docs.anthropic.com/claude/docs/prompt-engineering",
+      "examples": "https://docs.anthropic.com/claude/examples"
+    },
+    "strengths": [
+      "Step-by-step reasoning and problem solving",
+      "Detailed explanations and justifications",
+      "Multi-step task execution with intermediate outputs",
+      "Explicit constraint handling and validation",
+      "Natural language understanding and generation",
+      "Code analysis and improvement suggestions",
+      "Mathematical and logical reasoning",
+      "Safety and ethical considerations"
+    ],
+    "best_for": [
+      "Complex problem solving with explanations",
+      "Multi-step tasks requiring reasoning",
+      "Code review and improvement with justifications",
+      "Educational content and explanations",
+      "Constraint satisfaction problems",
+      "Algorithm design and optimization"
+    ],
+    "limitations": [
+      "May be verbose in responses",
+      "Requires explicit instructions for best results",
+      "Context window limitations for very long conversations",
+      "May not always provide the most concise solutions",
+      "Limited to text-based interactions"
+    ],
+    "optimization_focus": [
+      "Step-by-step reasoning instructions",
+      "Explicit requirements and constraints",
+      "Requests for explanations and justifications",
+      "Intermediate output requirements",
+      "Validation and verification steps",
+      "Safety and ethical considerations"
+    ],
+    "real_examples": [
+      "Solve this algorithm problem step by step",
+      "Review this code and explain potential improvements",
+      "Design a system architecture with trade-offs",
+      "Explain the time complexity of this algorithm",
+      "Create a learning plan for mastering a technology"
+    ]
+  },
+  "gpt": {
+    "name": "GPT-4 (OpenAI)",
+    "documentation": {
+      "official": "https://platform.openai.com/docs",
+      "api_reference": "https://platform.openai.com/docs/api-reference",
+      "best_practices": "https://platform.openai.com/docs/guides/prompt-engineering",
+      "examples": "https://platform.openai.com/examples"
+    },
+    "strengths": [
+      "General-purpose reasoning and problem solving",
+      "Flexible input/output format handling",
+      "Example-driven learning and pattern recognition",
+      "Natural language understanding and generation",
+      "Code generation and review across languages",
+      "Creative problem solving and brainstorming",
+      "Multi-modal capabilities (text, code, reasoning)",
+      "Rapid prototyping and iteration"
+    ],
+    "best_for": [
+      "General code generation and review",
+      "Complex reasoning and problem solving",
+      "Explanatory answers and tutorials",
+      "Example-driven development",
+      "Creative coding and algorithm design",
+      "Multi-language code translation"
+    ],
+    "limitations": [
+      "May require explicit format instructions",
+      "Can be verbose or over-explain simple concepts",
+      "Context window limitations for very long inputs",
+      "May not always follow specific coding standards",
+      "Limited to text-based interactions"
+    ],
+    "optimization_focus": [
+      "Explicit input/output format specifications",
+      "Examples and edge cases",
+      "Requests for reasoning and explanations",
+      "Clear, concise instructions",
+      "Code style and formatting preferences",
+      "Error handling and validation requirements"
+    ],
+    "real_examples": [
+      "Convert this Python function to JavaScript",
+      "Explain how this algorithm works with examples",
+      "Generate test cases for this function",
+      "Optimize this code for better performance",
+      "Create a tutorial for learning this concept"
+    ]
+  }
+} 

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Prompt Optimizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f8fa; margin: 0; padding: 0; }
+        .container { max-width: 1200px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 16px #0001; padding: 32px; }
+        h1 { text-align: center; font-size: 2.2rem; margin-bottom: 0.5em; }
+        .desc { text-align: center; color: #666; margin-bottom: 2em; }
+        .form-row { display: flex; gap: 1em; margin-bottom: 1.5em; }
+        textarea { width: 100%; min-height: 120px; font-size: 1.1em; padding: 12px; border-radius: 6px; border: 1px solid #ccc; resize: vertical; }
+        select, button { font-size: 1.1em; padding: 10px; border-radius: 6px; border: 1px solid #bbb; }
+        button { background: #2d72d9; color: #fff; border: none; cursor: pointer; transition: background 0.2s; }
+        button:hover { background: #1a4e96; }
+        .results { display: flex; gap: 2em; margin-top: 2em; }
+        .result-block { flex: 1; background: #f4f6fb; border-radius: 8px; padding: 18px 16px; }
+        .result-block h3 { margin-top: 0; font-size: 1.1em; color: #2d72d9; }
+        .explanation { margin-top: 1.5em; background: #eaf1fb; border-radius: 8px; padding: 14px; color: #234; }
+        .steps { margin: 0.5em 0 0 1em; }
+        .tool-info { margin-bottom: 1em; color: #555; font-size: 1em; }
+        .tool-details { margin-top: 1.5em; background: #f8f9fa; border-radius: 8px; padding: 16px; }
+        .tool-details h4 { margin-top: 0; color: #2d72d9; }
+        .tool-details ul { margin: 0.5em 0; padding-left: 1.5em; }
+        .tool-details li { margin-bottom: 0.3em; }
+        .docs-links { margin-top: 1em; }
+        .docs-links a { color: #2d72d9; text-decoration: none; margin-right: 1em; }
+        .docs-links a:hover { text-decoration: underline; }
+        .examples { margin-top: 1em; }
+        .examples h5 { margin-bottom: 0.5em; color: #555; }
+        .example-item { background: #fff; padding: 8px 12px; margin-bottom: 0.5em; border-radius: 4px; border-left: 3px solid #2d72d9; font-family: monospace; font-size: 0.9em; }
+        @media (max-width: 800px) { .results { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Adaptive Prompt Optimizer</h1>
+        <div class="desc">Optimize your prompts for AI coding tools like Copilot, Cursor, Replit, CodeWhisperer, Claude, and GPT-4.<br>Get tool-specific improvements and explanations based on official documentation.</div>
+        <form id="promptForm" autocomplete="off">
+            <div class="form-row">
+                <textarea id="prompt" name="prompt" placeholder="Enter your base prompt here..." required></textarea>
+            </div>
+            <div class="form-row">
+                <select id="tool" name="tool" required>
+                    <option value="">Select Target Tool</option>
+                </select>
+                <button type="submit">Optimize Prompt</button>
+            </div>
+        </form>
+        <div id="results" style="display:none;">
+            <div class="results">
+                <div class="result-block">
+                    <h3>Original Prompt</h3>
+                    <pre id="originalPrompt"></pre>
+                </div>
+                <div class="result-block">
+                    <h3>Optimized Prompt</h3>
+                    <pre id="optimizedPrompt"></pre>
+                </div>
+            </div>
+            <div class="explanation">
+                <div class="tool-info"><b>Tool:</b> <span id="toolName"></span></div>
+                <b>Analysis:</b> <span id="analysis"></span><br>
+                <b>Optimization Steps:</b>
+                <ul class="steps" id="steps"></ul>
+                <b>Summary:</b> <span id="summary"></span>
+            </div>
+            <div class="tool-details" id="toolDetails" style="display:none;">
+                <h4>Tool Information</h4>
+                <div id="toolStrengths"></div>
+                <div id="toolBestFor"></div>
+                <div id="toolLimitations"></div>
+                <div id="toolFocus"></div>
+                <div class="docs-links" id="docsLinks"></div>
+                <div class="examples" id="examples"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let toolData = {};
+        
+        async function loadTools() {
+            const res = await fetch('/tools');
+            const tools = await res.json();
+            const select = document.getElementById('tool');
+            tools.forEach(tool => {
+                const opt = document.createElement('option');
+                opt.value = tool.id;
+                opt.textContent = `${tool.icon} ${tool.name}`;
+                select.appendChild(opt);
+            });
+            
+            // Load detailed tool data
+            const toolRes = await fetch('/tool_details');
+            toolData = await toolRes.json();
+        }
+        
+        loadTools();
+        
+        document.getElementById('promptForm').onsubmit = async function(e) {
+            e.preventDefault();
+            const prompt = document.getElementById('prompt').value;
+            const tool = document.getElementById('tool').value;
+            if (!prompt || !tool) return;
+            
+            const res = await fetch('/optimize', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt, tool })
+            });
+            const data = await res.json();
+            if (data.error) {
+                alert('Error: ' + data.error);
+                return;
+            }
+            
+            document.getElementById('results').style.display = '';
+            document.getElementById('originalPrompt').textContent = data.original_prompt;
+            document.getElementById('optimizedPrompt').textContent = data.optimized_prompt;
+            document.getElementById('toolName').textContent = data.tool;
+            document.getElementById('analysis').textContent = JSON.stringify(data.analysis, null, 2);
+            
+            const steps = data.explanation.steps || [];
+            const stepsList = document.getElementById('steps');
+            stepsList.innerHTML = '';
+            steps.forEach(s => {
+                const li = document.createElement('li');
+                li.textContent = `${s.step}: ${s.reason}`;
+                stepsList.appendChild(li);
+            });
+            
+            document.getElementById('summary').textContent = (data.explanation.summary || []).join(' ');
+            
+            // Display tool details
+            displayToolDetails(tool);
+        };
+        
+        function displayToolDetails(toolId) {
+            const tool = toolData[toolId];
+            if (!tool) return;
+            
+            document.getElementById('toolDetails').style.display = '';
+            
+            // Strengths
+            const strengths = document.getElementById('toolStrengths');
+            strengths.innerHTML = '<h5>Strengths:</h5><ul>' + 
+                tool.strengths.map(s => `<li>${s}</li>`).join('') + '</ul>';
+            
+            // Best for
+            const bestFor = document.getElementById('toolBestFor');
+            bestFor.innerHTML = '<h5>Best For:</h5><ul>' + 
+                tool.best_for.map(b => `<li>${b}</li>`).join('') + '</ul>';
+            
+            // Limitations
+            const limitations = document.getElementById('toolLimitations');
+            limitations.innerHTML = '<h5>Limitations:</h5><ul>' + 
+                tool.limitations.map(l => `<li>${l}</li>`).join('') + '</ul>';
+            
+            // Optimization focus
+            const focus = document.getElementById('toolFocus');
+            focus.innerHTML = '<h5>Optimization Focus:</h5><ul>' + 
+                tool.optimization_focus.map(f => `<li>${f}</li>`).join('') + '</ul>';
+            
+            // Documentation links
+            const docsLinks = document.getElementById('docsLinks');
+            docsLinks.innerHTML = '<h5>Documentation:</h5>';
+            Object.entries(tool.documentation).forEach(([key, url]) => {
+                const link = document.createElement('a');
+                link.href = url;
+                link.target = '_blank';
+                link.textContent = key.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+                docsLinks.appendChild(link);
+            });
+            
+            // Real examples
+            const examples = document.getElementById('examples');
+            examples.innerHTML = '<h5>Real Examples:</h5>';
+            tool.real_examples.forEach(example => {
+                const div = document.createElement('div');
+                div.className = 'example-item';
+                div.textContent = example;
+                examples.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html> 
